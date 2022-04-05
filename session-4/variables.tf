@@ -1,7 +1,7 @@
 variable "env" {
     type = string
     description = "This variable represents an environment"
-    default = "dev"
+    default = "qa"
 }
 
 variable "instance_type" {
