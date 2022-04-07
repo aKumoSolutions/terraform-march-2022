@@ -6,7 +6,8 @@ resource "aws_instance" "my_ec2" {
     {
     Name = "${var.env}-app-instance"
     Name2 = format("%s-app-instance", var.env)
-   }
+    }
+  )
   vpc_security_group_ids = [aws_security_group.my_sg.id]
 }
 
