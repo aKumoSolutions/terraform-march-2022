@@ -11,10 +11,3 @@ variable "instance_type" {
 }
 
 # Variables are for Re-Usable purpose, something that is repeated over and over again. 
-variable "tags" {
-    type = map
-    default =   {
-            "ENV": "dev",
-            "Project": "VPC"
-                }
-}
