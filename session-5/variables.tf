@@ -19,5 +19,5 @@ variable "ec2_inbound_rules" {
 variable "ec2_inbound_rules_cidr" {
     type = list(string)
     description = "A list of CIDR ranges for inbound rules"
-    default = ["0.0.0.0/0", "10.0.0.0/16", "10.0.0.0/24"]
+    default = ["0.0.0.0/0", "10.0.0.0/16", "10.0.0.0/24",]
 }

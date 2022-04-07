@@ -5,7 +5,7 @@ resource "aws_security_group" "my_sg" {
 }
 
 resource "aws_security_group_rule" "ingress_ssh" {
-  count = 3 
+  count = length(var.ec2_inbound_rules)  // length will count how many string, number that I have in a list
   type              = "ingress" #Hard Coded
   from_port         = element(var.ec2_inbound_rules, count.index )    // count.index = 0, 1, 2   count = 3 
   to_port           = element(var.ec2_inbound_rules, count.index )
@@ -28,3 +28,13 @@ resource "aws_security_group_rule" "egress" {
 # terraform.tfstate is called backend file. 
 # terraform.tfstate or backend file keeps track of your infrastructure.
 # terraform.tfstate is in charge of keeping Terraform idempotent. 
+
+
+# element, cound.index, count, length = v.0.14 and v0.15 
+# Terraform indroduced for_each
+# Terraform introduced dynamic resource creation  
+
+# Interpolation
+# Iteration 
+# For loop and while loop
+# What is loop
