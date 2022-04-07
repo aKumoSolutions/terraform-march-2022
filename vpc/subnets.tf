@@ -3,6 +3,12 @@ resource "aws_subnet" "public_subnet" {
   vpc_id            = aws_vpc.my_vpc.id
   cidr_block        = element(var.pub_cidr_subnet, count.index)
   availability_zone = element(var.subnet_azs, count.index)
+  tags = merge(
+    var.tags,
+    {
+      Name = "public_subnet_${count.index}"
+    }
+  )
 }
 
 resource "aws_subnet" "private_subnet" {
@@ -10,6 +16,12 @@ resource "aws_subnet" "private_subnet" {
   vpc_id            = aws_vpc.my_vpc.id
   cidr_block        = element(var.priv_cidr_subnet, count.index)
   availability_zone = element(var.subnet_azs, count.index)
+  tags = merge(
+    var.tags,
+    {
+      Name = "private_subnet_${count.index}"
+    }
+  )
 }
 
 resource "aws_route_table_association" "public" {
