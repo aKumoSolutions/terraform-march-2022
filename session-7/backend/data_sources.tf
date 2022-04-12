@@ -13,3 +13,7 @@ data "terraform_remote_state" "backend" {
 output "password" {
     value = data.terraform_remote_state.backend.outputs.db_password
 }
+
+output "username" {
+    value = data.terraform_remote_state.backend.outputs.db_user
+}
