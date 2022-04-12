@@ -1,3 +1,3 @@
 output "db_password" {
-    value = random_passowrd.db_password.result
+    value = random_password.db_password.result
 }
