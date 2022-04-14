@@ -3,7 +3,24 @@ resource "aws_instance" "my_ec2" {
   ami           =  data.aws_ami.amazon_linux_2.image_id
   instance_type =  var.instance_type   
   vpc_security_group_ids = [aws_security_group.my_sg.id]
-  user_data = file("user_data.sh")
-
   tags = merge(local.common_tags, { Name = replace(local.name, "rtype", "web-ec2") } )
+  key_name = aws_key_pair.terraform_server.key_name
+
+  provisioner "file" {
+    source = "/home/ec2-user/terraform-march-2022/session-8/index.html" #Where does your file exist? #Terraform Server
+    destination = "/tmp/index.html"
+
+    connection {
+      type = "ssh"
+      user = "ec2-user"
+      host = self.public_ip
+      private_key = file("~/.ssh/id_rsa")                   # Private key of my Terraform Server
+    }
+  }
+}
+
+
+resource "aws_key_pair" "terraform_server" {
+  key_name = replace(local.name, "rtype", "terraform_server_key")
+  public_key = file("~/.ssh/id_rsa.pub")
 }
