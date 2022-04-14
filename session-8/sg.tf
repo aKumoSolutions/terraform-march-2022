@@ -2,10 +2,7 @@ resource "aws_security_group" "my_sg" {
   name        = replace(local.name, "rtype", "web-sg")
   description = "This is a test security group"
   vpc_id      = "vpc-fc59629b"
-  tags = {
-      Name = replace(local.name, "rtype", "web-sg")
-      Tags = local.common_tags
-  }
+  tags = merge(local.common_tags, { Name = replace(local.name, "rtype", "web-sg") })
 }
 
 resource "aws_security_group_rule" "ingress_ssh" {
