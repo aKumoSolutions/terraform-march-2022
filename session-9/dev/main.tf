@@ -6,6 +6,7 @@ module "ec2" {
     ami = "ami-04a50faf2a2ec1901"
     instance_type = "t2.micro"
     env = "dev"
+    project = "app-1"
 }
 
 #Local and Remote means the way you are calling or sourcing  the modules
