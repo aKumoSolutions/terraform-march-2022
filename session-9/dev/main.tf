@@ -7,3 +7,9 @@ module "ec2" {
     instance_type = "t2.micro"
     env = "dev"
 }
+
+#Local and Remote means the way you are calling or sourcing  the modules
+
+#Root module is where you run the Terraform init, plan and apply commands directly
+
+#Child is module is where you declare your resources
