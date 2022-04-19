@@ -22,7 +22,7 @@ module "vpc" {
 
 // 2. Github Public or Private Repositories
 module "s3" {
-    source = "github.com/aKumoSolutions/terraform-march-2022//modules/s3?ref=v1.1.0"
+    source = "github.com/aKumoSolutions/terraform-march-2022//modules/s3?ref=v1.0.0"
     env = "dev-test"
 }
 
