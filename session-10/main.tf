@@ -22,6 +22,16 @@ module "vpc" {
 
 // 2. Github Public or Private Repositories
 module "s3" {
-    source = "github.com/aKumoSolutions/terraform-march-2022/tree/main/modules/s3"
+    source = "github.com/aKumoSolutions/terraform-march-2022/modules/s3"
     env = "dev"
 }
+
+// github.com = domain name
+// aKumoSolutions = organization
+// terraform-march-2022 = repository
+// tree = branches
+// main = default branches
+// modules = subdirectory
+// s3 = subdirectory
+
+
