@@ -14,7 +14,3 @@ variable "project" {
     type = string
     description = "This represents the project"
 }
-variable "s3_bucket_name" {
-    type = string
-    description = "This is my application bucket"
-}
