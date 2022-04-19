@@ -14,3 +14,7 @@ variable "project" {
     type = string
     description = "This represents the project"
 }
+variable "security_groupd_ids" {
+    type = list
+    description = "A list of security group IDs"
+}
