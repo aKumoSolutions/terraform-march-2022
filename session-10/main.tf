@@ -22,9 +22,11 @@ module "vpc" {
 
 // 2. Github Public or Private Repositories
 module "s3" {
-    source = "github.com/aKumoSolutions/terraform-march-2022/modules/s3"
+    source = "github.com/aKumoSolutions/terraform-march-2022/modules/s3?ref=v1.1.0"
     env = "dev-test"
 }
+
+// ?ref=v1.1.0 is a way to reference to the releases and tags
 
 // github.com = domain name
 // aKumoSolutions = organization
