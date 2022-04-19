@@ -32,7 +32,7 @@ module "ec2" {
     ami = "ami-04a50faf2a2ec1901"
     instance_type = "t2.micro"
     project = "application"
-    security_groupd_ids = [module.sg.]
+    security_group_ids = [module.sg.security_group_id]
 }
 
 module "sg" {
@@ -45,6 +45,7 @@ module "sg" {
         cidr_blocks = ["0.0.0.0/0"]
     },
     {
+
         from_port = 80
         to_port = 80
         protocol = "tcp"
